@@ -10,6 +10,7 @@ class TodoTask(models.Model):
     name = fields.Char(string='Description', required=True, size=64)
     is_done = fields.Boolean(string='Done?')
     active = fields.Boolean(string='Active?', default=True)
+    date_deadline = fields.Date('Deadline')
 
     @api.one
     def do_toggle_done(self):
