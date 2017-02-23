@@ -23,3 +23,13 @@ class TodoTask(models.Model):
         done_recs = self.search([('is_done', '=', True)])
         done_recs.write({'active': False})
         return True
+    
+    @api.one
+    def compute_user_todo_count(self):
+        self.user_todo_count = self.search_count(
+            [('user_id', '=', self.user_id.id)])
+
+    user_todo_count = fields.Integer(
+        'User To-Do Count',
+        compute='compute_user_todo_count'
+    )
