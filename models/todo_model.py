@@ -11,8 +11,9 @@ class TodoTask(models.Model):
     is_done = fields.Boolean(string='Done?')
     active = fields.Boolean(string='Active?', default=True)
     date_deadline = fields.Date('Deadline')
+    tage_id = fields.Many2one('todo.task.stage', 'Stage')
 
-    @api.one
+   @api.one
     def do_toggle_done(self):
         self.is_done = not self.is_done
         return True
