@@ -14,7 +14,7 @@ class TodoTask(models.Model):
     tage_id = fields.Many2one('todo.task.stage', 'Stage')
     user_id = fields.Many2one('res.users', 'Responsible')
 
-   @api.one
+    @api.one
     def do_toggle_done(self):
         self.is_done = not self.is_done
         return True
