@@ -7,7 +7,7 @@ from openerp import fields, models, api
 class TodoTask(models.Model):
     _name = 'todo.task'
 
-    name = fields.Char(string='Description', required=True, size=64)
+    name = fields.Char(string='Alias?', required=True, size=64)
     is_done = fields.Boolean(string='Done?')
     active = fields.Boolean(string='Active?', default=True)
     date_deadline = fields.Date('Deadline')
